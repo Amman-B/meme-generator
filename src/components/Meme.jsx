@@ -21,7 +21,7 @@ const styles = {
     textAlign: "center",
     color: "black",
     backgroundColor: "none",
-    marginLeft: 70
+    marginLeft: 70,
   },
 
   bottomText: {
@@ -36,16 +36,13 @@ const styles = {
     color: "white",
     marginBottom: 50,
   },
-
   imageContainer: {
-    position: "relative",
-    marginLeft: "80px",
-    width: "100%",
-  },
-
-  generatedImages: {
-    backgroundSize: "cover",
-    border: "3px solid red",
+    justifyContent: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'contain',
+    maxWidth: '100%',
+    height: 600,
+    marginBottom: 30
   },
 };
 
@@ -82,7 +79,13 @@ const Meme = () => {
     <>
       {/*  No need to use form element */}
       <Container>
-        <Grid container rowSpacing={3} columnSpacing={10} mt={3} justifyContent={'center'}>
+        <Grid
+          container
+          rowSpacing={3}
+          columnSpacing={10}
+          mt={3}
+          justifyContent={"center"}
+        >
           <Grid item xs={12} lg={6}>
             <TextField
               fullWidth
@@ -117,12 +120,21 @@ const Meme = () => {
               Get a new meme image
             </Button>
           </Grid>
-
-          <Card style={styles.imageContainer} >
-            <CardMedia style={styles.generatedImages} component='img' alt="generated-images" image={ meme.randomImage}/>
-        </Card>
-        <Typography style={styles.topText}>This is the top text</Typography>
         </Grid>
+        <Container maxWidth={'md'}>
+          
+        <Grid
+          container
+          style={styles.imageContainer}
+          sx={{ backgroundImage: `url(${meme.randomImage})`}}
+          >
+          <Grid item>
+            <Typography>Hello</Typography> 
+            </Grid>
+            {/* Add another trypography, use grid container direction vertical to set
+            the two texts apart from each other. top and bottom. */}
+        </Grid>
+          </Container>
       </Container>
     </>
   );
