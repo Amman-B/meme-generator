@@ -22,7 +22,8 @@ main {
 
 .header--image {
     height: 100%;
-    margin-right: 6px;
+    margin-left: auto;
+    padding-right: 5px;
 }
 
 .header--title {
@@ -71,12 +72,12 @@ main {
 
 .meme--text {
     position: absolute;
-    width: 80%;
+    width: 30%;
     text-align: center;
     left: 50%;
     transform: translateX(-50%);
     margin: 15px 0;
-    padding: 0 5px;
+    padding: 0 20px;
     font-family: impact, sans-serif;
     font-size: 2em;
     text-transform: uppercase;

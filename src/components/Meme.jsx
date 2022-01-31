@@ -3,23 +3,30 @@ import { useState, useEffect } from "react";
 import '../style.css';
 
 const Meme = () => {
+
+  // Setting the initial state of the input fields and image
   const [meme, setMeme] = useState({
-    topText: "",
-    bottomText: "",
-    randomImage: "http://i.imgflip.com/1bij.jpg",
+    topText:
+      "Nothing rhymes with orange?",
+    bottomText: "false. nothing and orange do not rhyme. ",
+    randomImage: "https://memegenerator.net/img/images/400x/1119569.jpg",
   });
 
   const [allMemes, setAllMemes] = useState();
 
+
   useEffect(() => {
+    // fetching images api
     fetch("https://api.imgflip.com/get_memes")
-      .then(res => res.json())
-      .then(data => setAllMemes(data.data.memes))
+      //return the body as a promise in JSON format.
+      .then((res) => res.json())
+      //setAllMemes state to memes data from apa
+      .then((data) => setAllMemes(data.data.memes));
   }, [])
 
 
 
-
+// get random images
   const getMemeImage = () => {
     const randomNumber = Math.floor(Math.random() * allMemes.length);
     const url = allMemes[randomNumber].url;
@@ -29,6 +36,7 @@ const Meme = () => {
     }));
   };
 
+  // handler for button
   const handleChange = (event) => {
     const { name, value } = event.target;
     setMeme((prevMeme) => {
@@ -43,6 +51,7 @@ const Meme = () => {
     <>
       <main>
         <div className="form">
+          {/* top text input */}
           <input
             className="form--input"
             placeholder="Top text"
@@ -51,6 +60,7 @@ const Meme = () => {
             onChange={handleChange}
           />
 
+          {/* bottom text input */}
           <input
             type="text"
             placeholder="Bottom text"
@@ -60,11 +70,13 @@ const Meme = () => {
             onChange={handleChange}
           />
 
+          {/* button to get a new meme image */}
           <button className="form--button" onClick={getMemeImage}>
             Get a new meme image
           </button>
         </div>
 
+        {/* image display with text overlay */}
         <div className="meme">
           <img src={meme.randomImage} className="meme--image" />
           <h2 className="meme--text top">{meme.topText}</h2>
