@@ -6,10 +6,9 @@ const Meme = () => {
 
   // Setting the initial state of the input fields and image
   const [meme, setMeme] = useState({
-    topText:
-      "Nothing rhymes with orange?",
+    topText: "Nothing rhymes with orange?",
     bottomText: "false. nothing and orange do not rhyme. ",
-    randomImage: "https://memegenerator.net/img/images/400x/1119569.jpg",
+    randomImage: "https://imgflip.com/s/meme/Dwight-Schrute.jpg",
   });
 
   const [allMemes, setAllMemes] = useState();
@@ -78,7 +77,7 @@ const Meme = () => {
 
         {/* image display with text overlay */}
         <div className="meme">
-          <img src={meme.randomImage} className="meme--image" />
+          <img src={meme.randomImage} className="meme--image" alt="random-image"/>
           <h2 className="meme--text top">{meme.topText}</h2>
           <h2 className="meme--text bottom">{meme.bottomText}</h2>
         </div>
