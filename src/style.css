@@ -1,11 +1,12 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+
 }
 
 body {
     font-family: "Karla", sans-serif;
-    margin: 0;
-   background: linear-gradient(to right, #D85A7FFF, rgba(119, 36, 61, 0.699));
+    background: linear-gradient(to right, #D85A7FFF, rgba(119, 36, 61, 0.699));
 }
 
 main {
@@ -49,6 +50,7 @@ main {
     border-radius: 5px;
     border: 1px solid #D5D4D8;
     text-indent: 5px;
+    width: 96%;
 }
 
 .form--button {
@@ -59,6 +61,8 @@ main {
     color: white;
     border: none;
     cursor: pointer;
+    width: 80%;
+    justify-self: center;
 }
 
 .meme {
